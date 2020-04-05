@@ -1,0 +1,30 @@
+I = input
+for m in range(int(I())):
+    n=int(input())
+    v=[];
+    s1=[]
+    for i in range(n):
+        s1.append('C')
+   
+    for i in range(n):
+        x=list(map(int,input().split()))
+        x.append(i)
+        v.append(x)
+
+    v=sorted(v)
+    c=0;j=0;flag=0
+    for i in range(0,n):
+        if(v[i][0]>=c):
+            s1[v[i][2]]='C'
+            c=v[i][1]
+        elif(v[i][0]>=j):
+            s1[v[i][2]]='J'
+            j=v[i][1]
+        else:
+            flag=1
+            break
+    if(flag==1):
+        print("Case #"+str(m+1)+": "+"IMPOSSIBLE")
+    else:
+        print("Case #" + str(m + 1) + ": " , ''.join(s1))
+

@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+int t;
+    cin >> t;
+for(int l=0;l<t;l++){
+   string z,fi;
+   cin >> z;
+   int c=0;
+   char a[z.length()+1];
+   strcpy(a, z.c_str());
+   for(int i=0;i<z.length();i++){
+      if(c<((int)(a[i])-48)){
+          for(int j=0;j<(((int)(a[i])-48)-c);j++){
+              fi+='(';
+          }
+          c+=(((int)(a[i])-48)-c);
+          fi+=a[i];
+      }
+      else if(c>((int)(a[i])-48)){
+          for(int j=0;j<(c-((int)(a[i])-48));j++){
+              fi+=')';
+          }
+          c-=(c-((int)(a[i])-48));
+          fi+=a[i];
+      }
+      else{
+          fi+=a[i];
+      }
+   }
+   for(int i=0;i<c;i++){
+       fi+=')';
+   }
+   cout << "Case #" << (l+1) << ": "<< fi << "\n";
+}
+}
+
+
+
+
+
+
+
+
